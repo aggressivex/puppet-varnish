@@ -43,7 +43,7 @@ class varnish::params {
   $min_threads          = 1
   $max_threads          = 1000
   $thread_timeout       = 120
- 
+
   ### Application related parameters
 
   $package = $::operatingsystem ? {
@@ -112,7 +112,13 @@ class varnish::params {
   }
 
   $port = '80'
+  $listen_port = $port
+  $listen_address = ''
   $protocol = 'tcp'
+  $vcl_conf = $config_file
+  $storage_file = '/var/lib/varnish/$INSTANCE/varnish_storage.bin'
+  $storage_size = '1GB'
+  $secret_file = '/etc/varnish/secret'
 
   # General Settings
   $my_class = ''
